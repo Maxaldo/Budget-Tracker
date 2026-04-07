@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Transaction } from "./types/Transaction";
+import type { Transaction } from "./types/Transaction";
+import TransactionList from "./components/TransactionList";
 
 function App() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -11,8 +12,9 @@ function App() {
   return (
     <div>
       <h1>Budget Tracker</h1>
+      <TransactionList transactions={transactions} onDelete={deleteTransaction} />
     </div>
   );
 }
 
-export default App;
+export default
